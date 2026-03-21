@@ -1,6 +1,6 @@
 from django.urls import path
 from library.views import health_check
-from library.views.auth_views import LoginView, LogoutView
+from library.views.auth_views import LoginView, LogoutView, MeView
 from library.views.user_views import UserListCreateView, UserRetrieveUpdateDestroyView
 from library.views.author_views import AuthorListCreateView, AuthorRetrieveUpdateDestroyView
 from library.views.book_views import BookListCreateView, BookRetrieveUpdateDestroyView
@@ -12,6 +12,7 @@ urlpatterns = [
     # Auth
     path('auth/login/', LoginView.as_view(), name='login'),
     path('auth/logout/', LogoutView.as_view(), name='logout'),
+    path('auth/me/', MeView.as_view(), name='me'),
 
     # Users (admin only for create/update/delete)
     path('users/', UserListCreateView.as_view(), name='user-list-create'),

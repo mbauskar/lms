@@ -131,6 +131,11 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
 
 CORS_ALLOW_CREDENTIALS = True
 
+CSRF_TRUSTED_ORIGINS = os.environ.get(
+    'CSRF_TRUSTED_ORIGINS',
+    'http://localhost:3000,http://localhost:8000,http://0.0.0.0:3000'
+).split(',')
+
 # Redis configuration
 REDIS_URL = os.environ.get('REDIS_URL', 'redis://redis:6379/0')
 

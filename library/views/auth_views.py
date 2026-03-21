@@ -27,3 +27,10 @@ class LogoutView(APIView):
     def post(self, request):
         logout(request)
         return Response({"detail": "Logout successful."}, status=status.HTTP_200_OK)
+
+
+class MeView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response(LibraryUserSerializer(request.user).data)
