@@ -1,9 +1,10 @@
 from django.db import models
+from library.models.base import BaseModel
 from library.models.user import LibraryUser
 from library.models.book import Book
 
 
-class Transaction(models.Model):
+class Transaction(BaseModel):
     STATUS_CHOICES = [
         ('borrowed', 'Borrowed'),
         ('returned', 'Returned'),

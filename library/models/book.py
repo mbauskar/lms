@@ -1,8 +1,9 @@
 from django.db import models
 from library.models.author import Author
+from library.models.base import BaseModel
 
 
-class Book(models.Model):
+class Book(BaseModel):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author, on_delete=models.PROTECT, related_name='books')
     isbn = models.CharField(max_length=13, unique=True)
