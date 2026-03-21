@@ -1,0 +1,68 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: nls-postgres
+    env_file:
+      - compose/.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - nls-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: nls-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - nls-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: compose/Dockerfile
+    container_name: nls-backend
+    env_file:
+      - compose/.env
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - nls-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: compose/Dockerfile.frontend
+    container_name: nls-frontend
+    volumes:
+      - ./library-ui:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - nls-network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  nls-network:
+    driver: bridge
