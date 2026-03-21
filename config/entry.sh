@@ -34,5 +34,6 @@ while retries < max_retries:
 
 END
 
+python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver 0.0.0.0:8000
