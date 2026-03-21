@@ -1,5 +1,5 @@
 """
-ASGI config for NLS project.
+ASGI config for lms project.
 """
 
 import os

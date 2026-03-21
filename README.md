@@ -1,4 +1,4 @@
-# NLS - Library Management System
+# LMS - Library Management System
 
 A full-stack web application built with Django backend, React frontend, PostgreSQL database, and Redis caching.
 
@@ -14,7 +14,7 @@ A full-stack web application built with Django backend, React frontend, PostgreS
 ## Project Structure
 
 ```
-nls/
+lms/
 ├── config/              # Django configuration
 ├── library/             # Django app
 ├── library-ui/          # React frontend
@@ -28,7 +28,7 @@ nls/
 
 1. **Setup:**
    ```bash
-   cd /Users/makarand/workspace/interview/assignments/nls
+   cd /Users/makarand/workspace/interview/assignments/lms
    ```
 
 2. **Build and Start:**

@@ -4,7 +4,7 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
-    container_name: nls-postgres
+    container_name: lms-postgres
     env_file:
       - .env
     environment:
@@ -16,25 +16,25 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - nls-network
+      - lms-network
 
   # Redis Cache
   redis:
     image: redis:7-alpine
-    container_name: nls-redis
+    container_name: lms-redis
     ports:
       - "6379:6379"
     volumes:
       - redis_data:/data
     networks:
-      - nls-network
+      - lms-network
 
   # Django Backend
   backend:
     build:
       context: ..
       dockerfile: compose/Dockerfile
-    container_name: nls-backend
+    container_name: lms-backend
     command: >
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
@@ -52,14 +52,14 @@ services:
       - postgres
       - redis
     networks:
-      - nls-network
+      - lms-network
 
   # React Frontend
   frontend:
     build:
       context: ..
       dockerfile: compose/Dockerfile.frontend
-    container_name: nls-frontend
+    container_name: lms-frontend
     volumes:
       - ../library-ui:/app
       - /app/node_modules
@@ -68,12 +68,12 @@ services:
     depends_on:
       - backend
     networks:
-      - nls-network
+      - lms-network
 
 volumes:
   postgres_data:
   redis_data:
 
 networks:
-  nls-network:
+  lms-network:
     driver: bridge
