@@ -1,5 +1,5 @@
 """
-WSGI config for NLS project.
+WSGI config for LMS project.
 """
 
 import os

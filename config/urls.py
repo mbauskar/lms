@@ -1,5 +1,5 @@
 """
-URL Configuration for NLS project.
+URL Configuration for LMS project.
 """
 from django.contrib import admin
 from django.urls import path, include
