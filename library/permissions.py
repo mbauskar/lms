@@ -20,3 +20,8 @@ class IsAdminOrLibrarian(BasePermission):
             request.user.is_authenticated
             and request.user.role in ('admin', 'librarian')
         )
+
+class IsMember(BasePermission):
+    """Only member users can access."""
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.role == 'member'
