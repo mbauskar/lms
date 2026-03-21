@@ -1,0 +1,198 @@
+[
+    {
+        "model": "library.book",
+        "pk": 1,
+        "fields": {
+            "uuid": "4cc98042-b0c0-4216-9d21-e2b08ddb84b6",
+            "created_at": "2026-03-21T12:56:34.760Z",
+            "updated_at": "2026-03-21T12:56:34.760Z",
+            "title": "A Will Eternal",
+            "author": 1,
+            "isbn": "1234567890",
+            "total_copies": 2,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 2,
+        "fields": {
+            "uuid": "29fc6411-7100-4c4d-ad41-db65a5cfef30",
+            "created_at": "2026-03-21T12:59:09.608Z",
+            "updated_at": "2026-03-21T12:59:09.608Z",
+            "title": "The Lightning Thief",
+            "author": 3,
+            "isbn": "1234567891",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 3,
+        "fields": {
+            "uuid": "c3240a3f-63c1-45d6-a08e-c0aa7da62414",
+            "created_at": "2026-03-21T12:59:27.119Z",
+            "updated_at": "2026-03-21T12:59:27.119Z",
+            "title": "The Sea of Monsters",
+            "author": 3,
+            "isbn": "1234567892",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 4,
+        "fields": {
+            "uuid": "9560a5d4-ded6-49b7-a5c5-10d9c4177591",
+            "created_at": "2026-03-21T12:59:43.839Z",
+            "updated_at": "2026-03-21T12:59:43.839Z",
+            "title": "The Titan’s Curse",
+            "author": 3,
+            "isbn": "1234567893",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 5,
+        "fields": {
+            "uuid": "73e9ea1b-807d-43f3-aef1-b6eedd7b5e5b",
+            "created_at": "2026-03-21T12:59:59.260Z",
+            "updated_at": "2026-03-21T12:59:59.260Z",
+            "title": "The Battle of the Labyrinth",
+            "author": 3,
+            "isbn": "1234567894",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 6,
+        "fields": {
+            "uuid": "560e400c-f02a-4d9c-9b72-efac489cd63b",
+            "created_at": "2026-03-21T13:00:16.822Z",
+            "updated_at": "2026-03-21T13:00:16.822Z",
+            "title": "The Last Olympian",
+            "author": 3,
+            "isbn": "1234567895",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 7,
+        "fields": {
+            "uuid": "9717ecf4-69e6-4a9c-b6ee-b26fedae5821",
+            "created_at": "2026-03-21T13:00:57.490Z",
+            "updated_at": "2026-03-21T13:00:57.490Z",
+            "title": "Harry Potter and the Philosopher’s Stone",
+            "author": 4,
+            "isbn": "1234567896",
+            "total_copies": 3,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 8,
+        "fields": {
+            "uuid": "9c2520f6-7c24-4b7c-bc70-26b7db12d9f8",
+            "created_at": "2026-03-21T13:01:15.639Z",
+            "updated_at": "2026-03-21T13:01:15.639Z",
+            "title": "Harry Potter and the Chamber of Secrets",
+            "author": 4,
+            "isbn": "1234567897",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 9,
+        "fields": {
+            "uuid": "97c215ea-b9d1-45ac-877a-3558692b8f88",
+            "created_at": "2026-03-21T13:01:30.740Z",
+            "updated_at": "2026-03-21T13:01:30.740Z",
+            "title": "Harry Potter and the Prisoner of Azkaban",
+            "author": 4,
+            "isbn": "1234567898",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 10,
+        "fields": {
+            "uuid": "4387d5ee-0567-4336-826a-a9cd4c7b4ad5",
+            "created_at": "2026-03-21T13:01:51.489Z",
+            "updated_at": "2026-03-21T13:01:51.489Z",
+            "title": "Harry Potter and the Goblet of Fire",
+            "author": 4,
+            "isbn": "1234567899",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 11,
+        "fields": {
+            "uuid": "54c3b55f-fad0-411b-a5d2-940323566ab2",
+            "created_at": "2026-03-21T13:02:10.555Z",
+            "updated_at": "2026-03-21T13:02:10.555Z",
+            "title": "Harry Potter and the Order of the Phoenix",
+            "author": 4,
+            "isbn": "1234567810",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 12,
+        "fields": {
+            "uuid": "130f1c92-5775-4f16-b14a-901adf2de4a3",
+            "created_at": "2026-03-21T13:02:24.106Z",
+            "updated_at": "2026-03-21T13:02:24.106Z",
+            "title": "Harry Potter and the Half-Blood Prince",
+            "author": 4,
+            "isbn": "1234567811",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 13,
+        "fields": {
+            "uuid": "7cd1275c-d142-472e-b1d7-aaeec526863f",
+            "created_at": "2026-03-21T13:02:38.833Z",
+            "updated_at": "2026-03-21T13:02:38.833Z",
+            "title": "Harry Potter and the Deathly Hallows",
+            "author": 4,
+            "isbn": "1234567812",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    },
+    {
+        "model": "library.book",
+        "pk": 14,
+        "fields": {
+            "uuid": "782211eb-4c47-4823-8325-c742986dcd0e",
+            "created_at": "2026-03-21T13:02:57.480Z",
+            "updated_at": "2026-03-21T13:02:57.480Z",
+            "title": "Shiva The Trilogy",
+            "author": 2,
+            "isbn": "1234567813",
+            "total_copies": 10,
+            "available_copies": 0
+        }
+    }
+]

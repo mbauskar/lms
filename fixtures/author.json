@@ -1,0 +1,46 @@
+[
+    {
+        "model": "library.author",
+        "pk": 1,
+        "fields": {
+            "uuid": "98143536-0159-427c-abcf-d5d520e2a9c5",
+            "created_at": "2026-03-21T12:54:41.538Z",
+            "updated_at": "2026-03-21T12:54:41.538Z",
+            "name": "Er Gen",
+            "bio": ""
+        }
+    },
+    {
+        "model": "library.author",
+        "pk": 2,
+        "fields": {
+            "uuid": "13c0db2b-b2d8-41c3-bcfa-5dd61778deb5",
+            "created_at": "2026-03-21T12:55:02.871Z",
+            "updated_at": "2026-03-21T12:55:02.871Z",
+            "name": "Amish Tripathi",
+            "bio": ""
+        }
+    },
+    {
+        "model": "library.author",
+        "pk": 3,
+        "fields": {
+            "uuid": "f0c7f967-4d5c-4c40-a74e-59a491f66db3",
+            "created_at": "2026-03-21T12:55:49.958Z",
+            "updated_at": "2026-03-21T12:55:49.958Z",
+            "name": "Rick Riordan",
+            "bio": ""
+        }
+    },
+    {
+        "model": "library.author",
+        "pk": 4,
+        "fields": {
+            "uuid": "fac4e84d-8cae-4a56-859e-88f15b8c2b26",
+            "created_at": "2026-03-21T12:56:14.151Z",
+            "updated_at": "2026-03-21T12:56:14.151Z",
+            "name": "J. K. Rowling",
+            "bio": ""
+        }
+    }
+]

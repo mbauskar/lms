@@ -1,0 +1,62 @@
+[
+    {
+        "model": "library.libraryuser",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$GPFKVWrfGxXwIF1OZIGOzg$4KRliSSg3oXX8YpkT3pjdZJtEzNKqejWvBGet78CHZU=",
+            "last_login": "2026-03-21T12:29:13Z",
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "LMS",
+            "last_name": "Admin",
+            "email": "admin@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-03-21T12:28:54Z",
+            "role": "admin",
+            "status": "active",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "library.libraryuser",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$P3XAau0k8QW3ZQCsog05KN$v5rOoPyMjSmg4rU4nt04VqtFtPyQsZdtoqhl0GZp/M8=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "jane.doe",
+            "first_name": "",
+            "last_name": "",
+            "email": "jane.doe@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-03-21T12:32:17.005Z",
+            "role": "member",
+            "status": "active",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "library.libraryuser",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$600000$hBGMjyxFPH3m9rslWJpFap$yL5GgguI9i0JkO+B2HeOjiaQTvn4RKC/OrdPeWNe5/s=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "john.doe",
+            "first_name": "",
+            "last_name": "",
+            "email": "john.doe@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2026-03-21T12:32:50.900Z",
+            "role": "member",
+            "status": "active",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]
