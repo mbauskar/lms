@@ -14,10 +14,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         today = datetime.date.today()
         overdue_txs = Transaction.objects.filter(
-            status="borrowed",
+            status__in=("borrowed", "overdue"),
             due_date__lt=today,
         )
-
         count = 0
         for tx in overdue_txs:
             overdue_days = (today - tx.due_date).days

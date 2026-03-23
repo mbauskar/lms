@@ -138,5 +138,3 @@ CSRF_TRUSTED_ORIGINS = os.environ.get(
 
 # Redis configuration
 REDIS_URL = os.environ.get('REDIS_URL', 'redis://redis:6379/0')
-
-

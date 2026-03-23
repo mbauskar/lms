@@ -47,7 +47,14 @@ lms/
    make createsuperuser
    ```
 
-5. **Access Application:**
+5. **Load Fixtures (sample data):**
+   ```bash
+   python manage.py loaddata fixtures/users.json
+   python manage.py loaddata fixtures/author.json
+   python manage.py loaddata fixtures/books.json
+   ```
+
+6. **Access Application:**
    - Frontend: http://localhost:3000
    - Django Admin: http://localhost:8000/admin
    - API: http://localhost:8000/api/
