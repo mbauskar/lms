@@ -10,7 +10,7 @@
             "author": 1,
             "isbn": "1234567890",
             "total_copies": 2,
-            "available_copies": 0
+            "available_copies": 2
         }
     },
     {
@@ -24,7 +24,7 @@
             "author": 3,
             "isbn": "1234567891",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -38,7 +38,7 @@
             "author": 3,
             "isbn": "1234567892",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -52,7 +52,7 @@
             "author": 3,
             "isbn": "1234567893",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -66,7 +66,7 @@
             "author": 3,
             "isbn": "1234567894",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -80,7 +80,7 @@
             "author": 3,
             "isbn": "1234567895",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -94,7 +94,7 @@
             "author": 4,
             "isbn": "1234567896",
             "total_copies": 3,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -108,7 +108,7 @@
             "author": 4,
             "isbn": "1234567897",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -122,7 +122,7 @@
             "author": 4,
             "isbn": "1234567898",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -136,7 +136,7 @@
             "author": 4,
             "isbn": "1234567899",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -150,7 +150,7 @@
             "author": 4,
             "isbn": "1234567810",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -164,7 +164,7 @@
             "author": 4,
             "isbn": "1234567811",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -178,7 +178,7 @@
             "author": 4,
             "isbn": "1234567812",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     },
     {
@@ -192,7 +192,7 @@
             "author": 2,
             "isbn": "1234567813",
             "total_copies": 10,
-            "available_copies": 0
+            "available_copies": 10
         }
     }
 ]
