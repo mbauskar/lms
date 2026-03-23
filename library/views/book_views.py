@@ -3,7 +3,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from library.models.book import Book
-from library.serializers import BookSerializer
+from library.models.transaction import Transaction
+from library.serializers import BookSerializer, MemberBookSerializer
 from library.permissions import IsAdmin, IsAdminOrLibrarian
 
 
@@ -15,6 +16,20 @@ class BookListCreateView(generics.ListCreateAPIView):
         if self.request.method == 'POST':
             return [IsAdminOrLibrarian()]
         return [IsAuthenticated()]
+
+    def get_queryset(self):
+        qs = Book.objects.all()
+        if self.request.user.role == 'member':
+            borrowed_book_ids = Transaction.objects.filter(
+                user=self.request.user, status='borrowed'
+            ).values_list('book_id', flat=True)
+            qs = qs.exclude(id__in=borrowed_book_ids)
+        return qs
+
+    def get_serializer_class(self):
+        if self.request.user.role == 'member':
+            return MemberBookSerializer
+        return BookSerializer
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
@@ -33,6 +48,11 @@ class BookRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
         if self.request.method in ('PUT', 'PATCH'):
             return [IsAdminOrLibrarian()]
         return [IsAuthenticated()]
+
+    def get_serializer_class(self):
+        if self.request.user.role == 'member':
+            return MemberBookSerializer
+        return BookSerializer
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()

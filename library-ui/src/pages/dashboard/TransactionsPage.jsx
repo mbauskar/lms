@@ -9,7 +9,7 @@ export default function TransactionsPage() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
   const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState({ user: '', book: '', borrow_date: '', due_date: '', return_date: '', status: 'borrowed' });
+  const [form, setForm] = useState({ user: '', book: '', borrow_date: '', status: 'borrowed' });
 
   const fetchTransactions = useCallback(async () => {
     try {
@@ -35,7 +35,7 @@ export default function TransactionsPage() {
   const openCreate = () => {
     clearMessages();
     const today = new Date().toISOString().slice(0, 10);
-    setForm({ user: '', book: '', borrow_date: today, due_date: '', return_date: '', status: 'borrowed' });
+    setForm({ user: '', book: '', borrow_date: today, status: 'borrowed' });
     setShowForm(true);
   };
 
@@ -43,7 +43,6 @@ export default function TransactionsPage() {
     e.preventDefault();
     clearMessages();
     const payload = { ...form };
-    if (!payload.return_date) delete payload.return_date;
     try {
       await api.post('/transactions/', payload);
       setSuccess('Transaction created.');
@@ -57,7 +56,7 @@ export default function TransactionsPage() {
   const markReturned = async (tx) => {
     clearMessages();
     try {
-      await api.patch(`/transactions/${tx.id}/`, { status: 'returned', return_date: new Date().toISOString().slice(0, 10) });
+      await api.patch(`/transactions/${tx.id}/`, { status: 'returned' });
       setSuccess('Book marked as returned.');
       fetchTransactions();
     } catch (err) {
@@ -91,7 +90,6 @@ export default function TransactionsPage() {
             </select>
           </label>
           <label>Borrow Date <input type="date" value={form.borrow_date} onChange={(e) => setForm({ ...form, borrow_date: e.target.value })} required /></label>
-          <label>Due Date <input type="date" value={form.due_date} onChange={(e) => setForm({ ...form, due_date: e.target.value })} required /></label>
           <div className="form-actions">
             <button type="submit" className="btn btn-primary">Create</button>
             <button type="button" className="btn" onClick={() => setShowForm(false)}>Cancel</button>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import api from '../../api';
 import '../dashboard/Dashboard.css';
 
@@ -6,6 +6,8 @@ export default function MemberTransactions() {
   const [transactions, setTransactions] = useState([]);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [returning, setReturning] = useState(null);
+  const confirmRef = useRef(null);
 
   const fetchTransactions = useCallback(async () => {
     try {
@@ -20,15 +22,23 @@ export default function MemberTransactions() {
 
   const clearMessages = () => { setError(''); setSuccess(''); };
 
-  const handleReturn = async (tx) => {
+  const handleReturn = async () => {
     clearMessages();
     try {
-      await api.patch(`/transactions/${tx.id}/`, { status: 'returned' });
+      await api.patch(`/transactions/${returning.id}/`, { status: 'returned' });
       setSuccess('Book returned successfully!');
+      setReturning(null);
       fetchTransactions();
     } catch (err) {
       setError(formatError(err));
+      setReturning(null);
     }
+  };
+
+  const openReturnModal = (tx) => {
+    clearMessages();
+    setReturning(tx);
+    setTimeout(() => confirmRef.current?.focus(), 0);
   };
 
   return (
@@ -39,6 +49,19 @@ export default function MemberTransactions() {
       <div className="page-body">
       {error && <div className="alert alert-error">{error}</div>}
       {success && <div className="alert alert-success">{success}</div>}
+
+      {returning && (
+        <div className="modal-overlay" onClick={() => setReturning(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <h3>Return Book</h3>
+            <p>Are you sure you want to return <strong>Book</strong>?</p>
+            <div className="form-actions">
+              <button ref={confirmRef} type="button" className="btn btn-primary" onClick={handleReturn}>Confirm Return</button>
+              <button type="button" className="btn" onClick={() => setReturning(null)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <table className="data-table">
         <thead>
@@ -55,7 +78,7 @@ export default function MemberTransactions() {
               <td>{t.fine_amount}</td>
               <td>
                 {t.status === 'borrowed' && (
-                  <button className="btn btn-sm btn-primary" onClick={() => handleReturn(t)}>
+                  <button className="btn btn-sm btn-primary" onClick={() => openReturnModal(t)}>
                     Return
                   </button>
                 )}

@@ -1,3 +1,5 @@
+import datetime
+
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -34,6 +36,15 @@ class TransactionListCreateView(generics.ListCreateAPIView):
                 )
 
         book = serializer.validated_data['book']
+        user = serializer.validated_data.get('user', request.user)
+
+        # Prevent borrowing the same book twice
+        if Transaction.objects.filter(user=user, book=book, status='borrowed').exists():
+            return Response(
+                {'detail': 'This member already has an active borrow for this book.'},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
         if book.available_copies < 1:
             return Response(
                 {'detail': 'No available copies of this book.'},
@@ -79,12 +90,13 @@ class TransactionRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView
         serializer = self.get_serializer(instance, data=request.data, partial=kwargs.get('partial', False))
         serializer.is_valid(raise_exception=True)
 
-        # If status changes to 'returned', restore the book's available copy
+        # If status changes to 'returned', restore the book's available copy and set return_date
         new_status = serializer.validated_data.get('status')
         if new_status == 'returned' and instance.status != 'returned':
             book = instance.book
             book.available_copies += 1
             book.save()
-
-        serializer.save()
+            serializer.save(return_date=datetime.date.today())
+        else:
+            serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)

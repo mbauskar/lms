@@ -91,18 +91,24 @@ class BookSerializer(serializers.ModelSerializer):
         return attrs
 
 
+class MemberBookSerializer(serializers.ModelSerializer):
+    author_name = serializers.CharField(source='author.name', read_only=True)
+
+    class Meta:
+        model = Book
+        exclude = ['available_copies', 'total_copies']
+
+
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
         fields = '__all__'
+        read_only_fields = ['due_date', 'return_date']
 
     def validate(self, attrs):
         borrow_date = attrs.get('borrow_date', getattr(self.instance, 'borrow_date', None))
-        due_date = attrs.get('due_date', getattr(self.instance, 'due_date', None))
         return_date = attrs.get('return_date', getattr(self.instance, 'return_date', None))
 
-        if borrow_date and due_date and due_date < borrow_date:
-            raise serializers.ValidationError({'due_date': 'Due date must be on or after the borrow date.'})
         if return_date and borrow_date and return_date < borrow_date:
             raise serializers.ValidationError({'return_date': 'Return date must be on or after the borrow date.'})
         return attrs
